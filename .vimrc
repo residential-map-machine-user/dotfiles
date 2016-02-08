@@ -490,6 +490,7 @@ nmap gs :Gstatus<CR>
 nmap ga :Gwrite<CR>
 nmap gc :Gcommit<CR>
 nmap gd :Gdiff<CR>
+nmap gb :Gblame<CR>
 " imap <C-j> <esc>
 " vmap <C-j> <esc>
 " function! ZenkakuSpace()
