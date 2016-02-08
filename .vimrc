@@ -36,6 +36,7 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundleLazy "majutsushi/tagbar", {
       \ "autoload": { "commands": ["TagbarToggle"] }}
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'kmnk/vim-unite-giti.git'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
@@ -365,12 +366,15 @@ nmap <C-j><C-j> <Plug>(unite_exit)
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
 let g:unite_source_file_mru_limit = 200
-nnoremap <silent> [unite]<C-y> :<C-u>Unite history/yank<CR>
-nnoremap <silent> [unite]<C-b> :<C-u>Unite buffer bookmark file_mru<CR>
+nnoremap <silent> [unite]<C-y> :<C-u>Unite bookmark history/yank<CR>
+" nnoremap <silent> [unite]<C-b> :<C-u>Unite buffer bookmark file_mru<CR>
 nnoremap <silent> [unite]<C-u> :<C-u>Unite buffer file file_mru<CR>
 nnoremap <silent> [unite]<C-g> :<C-u>Unite grep<CR>
+nnoremap <silent> [unite]s :<C-u>Unite giti/status<CR>
+nnoremap <silent> [unite]b :<C-u>Unite giti/branch<CR>
+nnoremap <silent> [unite]l :<C-u>Unite giti/log<CR>
 nnoremap <silent> [unite]<C-m> :<C-u>Unite mark<CR>
-nnoremap <silent> [unite]<C-l> :<C-u>Unite line<CR>
+" nnoremap <silent> [unite]<C-l> :<C-u>Unite line<CR>
 nnoremap <silent> [unite]<C-q> :<C-u>Unite qf<CR>
 nnoremap <silent> [unite]<C-a> :<C-u>UniteBookmarkAdd<CR>
 call unite#custom#default_action('directory' , 'vimfiler')
@@ -488,7 +492,7 @@ nmap <C-t> :tabNext<CR>
 nmap <C-e> :tabnew<CR>
 nmap gs :Gstatus<CR>
 nmap ga :Gwrite<CR>
-nmap gc :Gcommit<CR>
+nmap gco :Gcommit<CR>
 nmap gd :Gdiff<CR>
 nmap gb :Gblame<CR>
 " imap <C-j> <esc>
