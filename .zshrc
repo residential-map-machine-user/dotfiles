@@ -1,4 +1,5 @@
 alias vi=/usr/local/bin/vim
+alias gla="git lga"
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/yukimatsuyama/.oh-my-zsh
 

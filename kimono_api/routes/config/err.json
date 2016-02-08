@@ -1,7 +1,6 @@
 {
   "dbSaveErr": "when saving data to database somthing happen",
   "dbFindErr": "when searching from database somting wrong happen",
-  "generateTokenError":"randomry token generating error"
+  "generateTokenError":"randomry token generating error",
+  "dbRemoveErr":"when remove data from db error occured"
 }
-
-

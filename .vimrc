@@ -369,7 +369,7 @@ let g:unite_source_file_mru_limit = 200
 nnoremap <silent> [unite]<C-y> :<C-u>Unite bookmark history/yank<CR>
 " nnoremap <silent> [unite]<C-b> :<C-u>Unite buffer bookmark file_mru<CR>
 nnoremap <silent> [unite]<C-u> :<C-u>Unite buffer file file_mru<CR>
-nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+nnoremap <silent> [unite]gg :<C-u>Unite grep<CR>
 nnoremap <silent> [unite]<C-g> :<C-u>Unite giti<cr>
 nmap <silent> [unite]<C-r> :<C-u>Unite giti/status<CR>
 nnoremap <silent> [unite]<C-b> :<C-u>Unite giti/branch<CR>

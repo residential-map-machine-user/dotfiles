@@ -8,8 +8,35 @@ var util = require('../routes/util');
 var errMsg = require('../routes/config/err.json');
 var Item = require('../model/ItemModel');
 var ItemColor = require('../model/ItemColorModel.js');
+var _ = require('lodash');
 
+/**
+ * v1/usersに対するhandler usersを返す
+ *
+ * @returns {undefined}
+ */
+router.get("/:idItem/colors/:idColor", function (req, res, next) {
+  ItemColor.findOne({_id: req.params.idColor}, function (err, itemColor) {
+    if(err){
+      errorHandling(err, errMsg.dbFindErr);
+    }
+    res.json(itemColor);
+  })
+})
 
+/**
+ * v1/usersに対するhandler usersを返す
+ *
+ * @returns {undefined}
+ */
+router.delete("/:idItem/colors/:idColor", function (req, res, next) {
+  ItemColor.remove({_id: req.params.idColor}, function (err, result) {
+    if (err) {
+      errorHandling(err, errMsg.dbRemoveError);
+    }
+    res.json(result);
+  })
+})
 
 /**
  * v1/usersに対するhandler usersを返す
@@ -33,45 +60,19 @@ router.get('/:idItem', function(req, res, next) {
 router.post('/:idItem', function (req, res, next) {
   //TODO ここの処理ではcolorの配列が入ってくることが考えられる
   var requestBody = req.body;
-  var store = new Store();
   console.log(requestBody);
-  if(requestBody){
-    store.id_seller = requestBody.idSeller;
-    store.store_name = requestBody.storeName;
-    store.description = requestBody.description;
-    store.address.zipcode = requestBody.zipcode;
-    store.address.address1 = requestBody.address1;
-    store.address.address2 = requestBody.address2;
-    store.ssm_id = requestBody.ssm_id;
-    store.business_number = requestBody.businessNumber;
-    store.store_pics_url = requestBody.store_pics_url;
-    store.save(function (err, savedStore) {
-      if (err) {
-        errorHandling(err, errMsg.dbSaveErr);
-      }
-      res.json(savedStore);
-    })
+  var colors = requestBody.colors;
+  if(!_.isEmpty(requestBody)){
+    asyncInsert(colors, req.params.idItem).then(function () {
+      res.json({success:"success"});
+    }).catch(function (err) {
+      res.json(err);
+    });
   }
 });
 
-router.get("/:idStore", function (req, res, next) {
-  Store.findOne({_id: req.params.idStore}, function (err, store) {
-    if(err){
-      errorHandling(err, errMsg.dbFindErr);
-    }
-    res.json(store);
-  })
-})
 
 
-router.delete("/:idStore", function (req, res, next) {
-  Store.findOne({_id: req.params.idStore}).update({fg_delete:true}, function (err, result) {
-    if(err){
-      errorHandling(err, errMsg.dbFindErr);
-    }
-    res.json();
-  });
-})
 
 /**
  * errorHandling
@@ -83,5 +84,34 @@ router.delete("/:idStore", function (req, res, next) {
 function errorHandling(err, message){
   console.log(message);
   console.log(err);
+}
+
+/**
+ * asyncInsert
+ *
+ * @param element
+ * @returns {undefined}
+ */
+function asyncInsert(element, idItem){
+  var self = null;
+  var promise  = new Promise(function(resolve, reject){ 
+    resolve(element);
+  });
+  return promise.then(function loop(ele) {
+    if(element.length > 0 && typeof(element) == "object"){
+      return new Promise(function (resolve, reject) {
+        var itemColor = new ItemColor();
+        // itemColor.id_item = req.params.idItem;
+        itemColor.color = _.last(element);
+        itemColor.id_item = idItem;
+        itemColor.save(function (err, save) {
+          if(err){
+            reject(err);
+          }
+          resolve(element.pop());
+        })
+      }).then(loop);
+    }
+  });
 }
 module.exports = router;
