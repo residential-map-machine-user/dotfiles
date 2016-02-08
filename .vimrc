@@ -371,8 +371,8 @@ nnoremap <silent> [unite]<C-y> :<C-u>Unite bookmark history/yank<CR>
 nnoremap <silent> [unite]<C-u> :<C-u>Unite buffer file file_mru<CR>
 nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
 nnoremap <silent> [unite]<C-g> :<C-u>Unite giti<cr>
-nnoremap <silent> [unite]s :<c-u>unite giti/status<CR>
-nnoremap <silent> [unite]b :<C-u>Unite giti/branch<CR>
+nmap <silent> [unite]<C-r> :<C-u>Unite giti/status<CR>
+nnoremap <silent> [unite]<C-b> :<C-u>Unite giti/branch<CR>
 nnoremap <silent> [unite]l :<C-u>Unite giti/log<CR>
 nnoremap <silent> [unite]<C-m> :<C-u>Unite mark<CR>
 nnoremap <silent> [unite]<C-l> :<C-u>Unite line<CR>
