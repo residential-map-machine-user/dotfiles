@@ -417,7 +417,7 @@ let g:syntastic_mode_map = {
 
 
 "emmet 設定
-let g:user_emmet_leader_key = '<c-e>'
+let g:user_emmet_leader_key = '<C-e>'
 let g:user_emmet_settings = {
       \    'variables' : {
       \        'lang' : 'ja',
