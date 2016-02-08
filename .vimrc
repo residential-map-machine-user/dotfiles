@@ -58,7 +58,7 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'Lokaltog/vim-easymotion'
+" NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'moll/vim-node'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
@@ -369,12 +369,13 @@ let g:unite_source_file_mru_limit = 200
 nnoremap <silent> [unite]<C-y> :<C-u>Unite bookmark history/yank<CR>
 " nnoremap <silent> [unite]<C-b> :<C-u>Unite buffer bookmark file_mru<CR>
 nnoremap <silent> [unite]<C-u> :<C-u>Unite buffer file file_mru<CR>
-nnoremap <silent> [unite]<C-g> :<C-u>Unite grep<CR>
-nnoremap <silent> [unite]s :<C-u>Unite giti/status<CR>
+nnoremap <silent> [unite]g :<C-u>Unite grep<CR>
+nnoremap <silent> [unite]<C-g> :<C-u>Unite giti<cr>
+nnoremap <silent> [unite]s :<c-u>unite giti/status<CR>
 nnoremap <silent> [unite]b :<C-u>Unite giti/branch<CR>
 nnoremap <silent> [unite]l :<C-u>Unite giti/log<CR>
 nnoremap <silent> [unite]<C-m> :<C-u>Unite mark<CR>
-" nnoremap <silent> [unite]<C-l> :<C-u>Unite line<CR>
+nnoremap <silent> [unite]<C-l> :<C-u>Unite line<CR>
 nnoremap <silent> [unite]<C-q> :<C-u>Unite qf<CR>
 nnoremap <silent> [unite]<C-a> :<C-u>UniteBookmarkAdd<CR>
 call unite#custom#default_action('directory' , 'vimfiler')
