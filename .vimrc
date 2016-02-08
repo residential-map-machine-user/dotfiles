@@ -486,6 +486,10 @@ inoremap <C-l> <Right>
 nnoremap <C-]> g<C-]>
 nmap <C-t> :tabNext<CR>
 nmap <C-e> :tabnew<CR>
+nmap gs :Gstatus<CR>
+nmap ga :Gwrite<CR>
+nmap gc :Gcommit<CR>
+nmap gd :Gdiff<CR>
 " imap <C-j> <esc>
 " vmap <C-j> <esc>
 " function! ZenkakuSpace()
