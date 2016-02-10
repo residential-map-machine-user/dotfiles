@@ -36,9 +36,12 @@ NeoBundle 'Shougo/vimproc.vim', {
 NeoBundleLazy "majutsushi/tagbar", {
       \ "autoload": { "commands": ["TagbarToggle"] }}
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'haya14busa/vim-easyoperator-phrase'
 NeoBundle 'kmnk/vim-unite-giti.git'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/neocomplete'
+NeoBundle 'haya14busa/vim-easyoperator-line'
+NeoBundle 'easymotion/vim-easymotion'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle "osyo-manga/vim-reunions"
@@ -58,7 +61,6 @@ NeoBundle 'mxw/vim-jsx'
 NeoBundle 'tpope/vim-commentary'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'thinca/vim-quickrun'
-" NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'moll/vim-node'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
@@ -111,7 +113,7 @@ let g:vim_json_syntax_conceal = 0
 " html5設定
 let g:emmet_html5 = 1
 "tagbar設定
-nnoremap  <silent> <leader>t :TagbarToggle<CR>
+nnoremap  <silent> <Leader>t :TagbarToggle<CR>
 let g:tagbar_width = 40
 "git status line 設定
 " vim-gitgutter
@@ -252,6 +254,11 @@ function! MyCharCode()
 
   return "'". char ."' ". nr
 endfunction
+" easy motiong 設定
+map  f <Plug>(easymotion-bd-f)
+nmap s <Plug>(easymotion-s2)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 "neo complete 設定
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
