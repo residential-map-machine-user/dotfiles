@@ -1,14 +1,52 @@
 alias vi=/usr/local/bin/vim
 alias gla="git lga"
+ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
+export ECLIPSE_HOME
+PATH=$HOME/android-ndk-r10e:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools:$GRADLE_HOME/bin:$HOME/.nodebrew/current/bin:/usr/local/bin:$PATH
+export PATH
+alias toms=$HOME/tomcat7/bin/startup.sh
+alias tomf=$HOME/tomcat7/bin/shutdown.sh
+alias re="source  $HOME/.bash_profile"
+alias vi="vim"
+alias eclimd="$ECLIPSE_HOME/eclimd"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/yukimatsuyama/.gvm/bin/gvm-init.sh" ]] && source "/Users/yukimatsuyama/.gvm/bin/gvm-init.sh"
+
+# Add environment variable COCOS_CONSOLE_ROOT for cocos2d-x
+export COCOS_CONSOLE_ROOT=/Users/yukimatsuyama/Downloads/cocos2d-x-3.8/tools/cocos2d-console/bin
+export PATH=$COCOS_CONSOLE_ROOT:$PATH
+
+# Add environment variable COCOS_TEMPLATES_ROOT for cocos2d-x
+export COCOS_TEMPLATES_ROOT=/Users/yukimatsuyama/Downloads/cocos2d-x-3.8/templates
+export PATH=$COCOS_TEMPLATES_ROOT:$PATH
+
+# Add environment variable NDK_ROOT for cocos2d-x
+export NDK_ROOT=/Users/yukimatsuyama/android-ndk-r10e
+export PATH=$NDK_ROOT:$PATH
+
+# Add environment variable ANDROID_SDK_ROOT for cocos2d-x
+export ANDROID_SDK_ROOT=/Users/yukimatsuyama/Library/Android/sdk
+export PATH=$ANDROID_SDK_ROOT:$PATH
+export PATH=$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools:$PATH
+
+# Add environment variable ANT_ROOT for cocos2d-x
+export ANT_ROOT=/Applications/Cocos/tools/ant/bin
+export PATH=$ANT_ROOT:$PATH
+export PATH="/usr/local/sbin:$PATH"
+
+# Add environment variable COCOS_FRAMEWORKS for cocos2d-x
+export COCOS_FRAMEWORKS=/Applications/Cocos/frameworks
+export PATH=$COCOS_FRAMEWORKS:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/yukimatsuyama/.oh-my-zsh
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="agnoster"
-
+alias act="activator"
+eval "$(hub alias -s)"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -57,7 +95,7 @@ plugins=(git)
 
 export PATH="/Applications/Cocos/frameworks:/usr/local/sbin:/Applications/Cocos/tools/ant/bin:/Users/yukimatsuyama/Library/Android/sdk/tools:/Users/yukimatsuyama/Library/Android/sdk/platform-tools:/Users/yukimatsuyama/Library/Android/sdk:/Users/yukimatsuyama/android-ndk-r10e:/Users/yukimatsuyama/Downloads/cocos2d-x-3.8/templates:/Users/yukimatsuyama/Downloads/cocos2d-x-3.8/tools/cocos2d-console/bin:/Users/yukimatsuyama/android-ndk-r10e:/Users/yukimatsuyama/Library/Android/sdk/platform-tools:/Users/yukimatsuyama/Library/Android/sdk/tools:/Users/yukimatsuyama/.gvm/gradle/current/bin:/Users/yukimatsuyama/.nodebrew/current/bin:/usr/local/bin:/Users/yukimatsuyama/.mongodb/bin:/Users/yukimatsuyama/.gvm/vertx/current/bin:/Users/yukimatsuyama/.gvm/springboot/current/bin:/Users/yukimatsuyama/.gvm/lazybones/current/bin:/Users/yukimatsuyama/.gvm/jbake/current/bin:/Users/yukimatsuyama/.gvm/groovyserv/current/bin:/Users/yukimatsuyama/.gvm/groovy/current/bin:/Users/yukimatsuyama/.gvm/griffon/current/bin:/Users/yukimatsuyama/.gvm/grails/current/bin:/Users/yukimatsuyama/.gvm/gradle/current/bin:/Users/yukimatsuyama/.gvm/glide/current/bin:/Users/yukimatsuyama/.gvm/gaiden/current/bin:/Users/yukimatsuyama/.gvm/crash/current/bin:/Users/yukimatsuyama/.gvm/asciidoctorj/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
+export PATH=$PATH:~/act
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -84,3 +122,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
