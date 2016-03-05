@@ -35,7 +35,17 @@ NeoBundle 'Shougo/vimproc.vim', {
       \ }
 NeoBundleLazy "majutsushi/tagbar", {
       \ "autoload": { "commands": ["TagbarToggle"] }}
+NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
+  \ 'insert' : 1,
+  \ 'filetypes': 'ruby',
+  \ }}
+NeoBundleLazy 'marcus/rsense', {
+      \ 'autoload': {
+      \   'filetypes': 'ruby',
+      \ },
+      \ }
 NeoBundle 'Shougo/unite.vim'
+NeoBundle "w0ng/vim-hybrid"
 NeoBundle 'haya14busa/vim-easyoperator-phrase'
 NeoBundle 'kmnk/vim-unite-giti.git'
 NeoBundle 'Shougo/neomru.vim'
@@ -255,7 +265,7 @@ function! MyCharCode()
   return "'". char ."' ". nr
 endfunction
 " easy motiong 設定
-map  f <Plug>(easymotion-bd-f)
+" map  f <Plug>(easymotion-bd-f)
 nmap s <Plug>(easymotion-s2)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -283,6 +293,11 @@ let g:neocomplete#force_omni_input_patterns.objc =
       \ '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.objcpp =
       \ '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+let g:neocomplete#force_omni_input_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
+
+" 環境変数RSENSE_HOMEに'/usr/local/bin/rsense'を指定しても動く
+let g:neocomplete#sources#rsense#home_directory = '/usr/local/bin/rsense'
+let g:rsenseUseOmniFunc = 1
 let g:node_usejscomplete = 1
 let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#enable_at_startup = 1
@@ -290,11 +305,18 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 let $DOTVIM = $HOME . '/.vim'
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"       \ 'default' : '',
+"       \ 'vimshell' : $HOME.'/.vimshell_hist',
+"       \ 'scheme' : $HOME.'/.gosh_completions',
+"       \ 'ruby' : $DOTVIM.'/dict/ruby.dict',
+"       \ 'php' : $DOTVIM.'/dict/php.dict',
+"       \ 'java' : $DOTVIM.'/dict/java.dict'
+"       \ }
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default' : '',
       \ 'vimshell' : $HOME.'/.vimshell_hist',
       \ 'scheme' : $HOME.'/.gosh_completions',
-      \ 'ruby' : $DOTVIM.'/dict/ruby.dict',
       \ 'php' : $DOTVIM.'/dict/php.dict',
       \ 'java' : $DOTVIM.'/dict/java.dict'
       \ }
@@ -415,6 +437,7 @@ let g:syntastic_check_on_save=1 "保存時にはチェック
 let g:syntastic_check_on_wq = 0 " wqではチェックしない
 let g:syntastic_auto_loc_list=1 "エラーがあったら自動でロケーションリストを開く
 let g:syntastic_loc_list_height=6 "エラー表示ウィンドウの高さ
+let g:loaded_syntastic_java_javac_checker = 1
 let g:syntastic_javascript_checkers = ['eslint'] "ESLintを使う
 let g:syntastic_mode_map = {
       \ 'mode': 'active',
@@ -488,7 +511,7 @@ let g:user_emmet_settings = {
 " clang 設定
 " let g:clang_c_options = '-std=c11'
 " let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
-
+colorscheme hybrid
 
 "カスタム設定
 inoremap <Leader><Leader> :tabnew<CR>
