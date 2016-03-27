@@ -1,6 +1,6 @@
 if 0 | endif
 if has('vim_starting')
-  if &compatible
+ if &compatible
     set nocomatible 
   endif
   set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -81,6 +81,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'alpaca-tc/alpaca_powertabline'
 NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'Lokaltog/powerline-fontpatcher'
+NeoBundle 'rizzatti/dash.vim'
+NeoBundle 'tpope/vim-rails.git'
 call neobundle#end()
 NeoBundleCheck
 "vim デフォルト設定
@@ -444,7 +446,7 @@ let g:syntastic_mode_map = {
       \ 'active_filetypes': ['javascript'],
       \ 'passive_filetypes': []
       \ }
-
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
 
 "emmet 設定
 let g:user_emmet_leader_key = '<C-e>'
@@ -519,6 +521,9 @@ inoremap <C-j> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
 nnoremap <C-]> g<C-]>
+nmap con :Econtroller<CR>
+nmap model :Emodel<CR>
+nmap test :A<CR>
 nmap <C-t> :tabNext<CR>
 nmap <C-e> :tabnew<CR>
 nmap gs :Gstatus<CR>
