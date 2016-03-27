@@ -549,6 +549,7 @@ augroup grepopen
   autocmd!
   autocmd QuickfixCmdPost vimgrep cw
 augroup END
+au User Rails nnoremap <C-u>r :Dash rails:<C-R><C-W><CR>
 " if has('syntax')
 "   augroup ZenkakuSpace
 "     autocmd!
