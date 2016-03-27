@@ -1,12 +1,21 @@
 if 0 | endif
 if has('vim_starting')
- if &compatible
+  if &compatible
     set nocomatible 
   endif
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make',
+      \     'linux' : 'make',
+      \     'unix' : 'gmake',
+      \    },
+      \ }
 NeoBundleLazy 'heavenshell/vim-jsdoc' , {'autoload': {'filetypes': ['javascript']}}
 NeoBundle "cohama/vim-smartinput-endwise"
 NeoBundleLazy 'Shougo/vimshell', {
@@ -24,21 +33,8 @@ NeoBundleLazy 'Shougo/vimfiler', {
       \   'mappings' : ['<Plug>(vimfiler_switch)'],
       \   'explorer' : 1,
       \ }}
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make',
-      \     'linux' : 'make',
-      \     'unix' : 'gmake',
-      \    },
-      \ }
 NeoBundleLazy "majutsushi/tagbar", {
       \ "autoload": { "commands": ["TagbarToggle"] }}
-NeoBundleLazy 'supermomonga/neocomplete-rsense.vim', { 'autoload' : {
-  \ 'insert' : 1,
-  \ 'filetypes': 'ruby',
-  \ }}
 NeoBundleLazy 'marcus/rsense', {
       \ 'autoload': {
       \   'filetypes': 'ruby',
@@ -85,7 +81,7 @@ NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'tpope/vim-rails.git'
 call neobundle#end()
 NeoBundleCheck
-"vim デフォルト設定
+""vim デフォルト設定
 syntax on
 filetype plugin indent  on
 set wildmenu
@@ -418,8 +414,8 @@ call unite#custom#default_action('file' , 'open')
 "vim filer設定
 let g:vimfiler_as_default_explorer  = 1
 let g:vimfiler_safe_mode_by_default = 0
-let g:vimfiler_data_directory       = expand('~/.vim/etc/vimfiler')
-nnoremap <silent><C-u><C-j> :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit -toggle<CR>
+" let g:vimfiler_data_directory       = expand('~/.vim/etc/vimfiler')
+" nnoremap <silent><C-u><C-j> :<C-u>VimFilerBufferDir -split -simple -winwidth=35 -no-quit -toggle<CR>
 nnoremap <Leader>v :VimFilerExplorer<CR>
 "neo yank設定
 
@@ -446,7 +442,7 @@ let g:syntastic_mode_map = {
       \ 'active_filetypes': ['javascript'],
       \ 'passive_filetypes': []
       \ }
-let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['ruby'] }
+
 
 "emmet 設定
 let g:user_emmet_leader_key = '<C-e>'
@@ -515,6 +511,7 @@ let g:user_emmet_settings = {
 " let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
 colorscheme hybrid
 
+let g:neobundle#log_filename = $HOME . "/neobundle.log"
 "カスタム設定
 inoremap <Leader><Leader> :tabnew<CR>
 inoremap <C-j> <Up>
@@ -550,11 +547,3 @@ augroup grepopen
   autocmd QuickfixCmdPost vimgrep cw
 augroup END
 au User Rails nnoremap <C-u>r :Dash rails:<C-R><C-W><CR>
-" if has('syntax')
-"   augroup ZenkakuSpace
-"     autocmd!
-"     autocmd ColorScheme * call ZenkakuSpace()
-"     autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
-"   augroup END
-"   call ZenkakuSpace()
-" endif
