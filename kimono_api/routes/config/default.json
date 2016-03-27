@@ -1,6 +1,0 @@
-var database ={
-	host:'localhost',
-	user:'kimono',
-	password:'kimono',
-	database:'kimono'
-}
