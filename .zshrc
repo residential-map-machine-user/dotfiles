@@ -1,5 +1,6 @@
 alias vi=/usr/local/bin/vim
 alias gla="git lga"
+alias git pull-request="git pull-request -b develop"
 ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
 export ECLIPSE_HOME
 PATH=$HOME/android-ndk-r10e:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools:$GRADLE_HOME/bin:$HOME/.nodebrew/current/bin:/usr/local/bin:$PATH
@@ -96,6 +97,7 @@ plugins=(git)
 export PATH="/Applications/Cocos/frameworks:/usr/local/sbin:/Applications/Cocos/tools/ant/bin:/Users/yukimatsuyama/Library/Android/sdk/tools:/Users/yukimatsuyama/Library/Android/sdk/platform-tools:/Users/yukimatsuyama/Library/Android/sdk:/Users/yukimatsuyama/android-ndk-r10e:/Users/yukimatsuyama/Downloads/cocos2d-x-3.8/templates:/Users/yukimatsuyama/Downloads/cocos2d-x-3.8/tools/cocos2d-console/bin:/Users/yukimatsuyama/android-ndk-r10e:/Users/yukimatsuyama/Library/Android/sdk/platform-tools:/Users/yukimatsuyama/Library/Android/sdk/tools:/Users/yukimatsuyama/.gvm/gradle/current/bin:/Users/yukimatsuyama/.nodebrew/current/bin:/usr/local/bin:/Users/yukimatsuyama/.mongodb/bin:/Users/yukimatsuyama/.gvm/vertx/current/bin:/Users/yukimatsuyama/.gvm/springboot/current/bin:/Users/yukimatsuyama/.gvm/lazybones/current/bin:/Users/yukimatsuyama/.gvm/jbake/current/bin:/Users/yukimatsuyama/.gvm/groovyserv/current/bin:/Users/yukimatsuyama/.gvm/groovy/current/bin:/Users/yukimatsuyama/.gvm/griffon/current/bin:/Users/yukimatsuyama/.gvm/grails/current/bin:/Users/yukimatsuyama/.gvm/gradle/current/bin:/Users/yukimatsuyama/.gvm/glide/current/bin:/Users/yukimatsuyama/.gvm/gaiden/current/bin:/Users/yukimatsuyama/.gvm/crash/current/bin:/Users/yukimatsuyama/.gvm/asciidoctorj/current/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH=$PATH:~/act
+PATH="/Applications/Postgres.app/Contents/Versions/9.5/bin:$PATH"
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -122,5 +124,4 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+eval "$(rbenv init -)"

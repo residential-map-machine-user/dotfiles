@@ -41,3 +41,6 @@ export PATH="/usr/local/sbin:$PATH"
 # Add environment variable COCOS_FRAMEWORKS for cocos2d-x
 export COCOS_FRAMEWORKS=/Applications/Cocos/frameworks
 export PATH=$COCOS_FRAMEWORKS:$PATH
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+eval "$(rbenv init -)"
