@@ -408,6 +408,11 @@ nnoremap <silent> [unite]<C-a> :<C-u>UniteBookmarkAdd<CR>
 call unite#custom#default_action('directory' , 'vimfiler')
 " ファイルは tabdrop で開く
 call unite#custom#default_action('file' , 'open')
+if executable('hw')
+  let g:unite_source_grep_command = 'hw'
+  let g:unite_source_grep_default_opts = '--no-group --no-color'
+  let g:unite_source_grep_recursive_opt = ''
+endif
 " 次のように , で複数の kind に対して設定することもできる
 
 
