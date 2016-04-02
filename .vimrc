@@ -40,6 +40,7 @@ NeoBundleLazy 'marcus/rsense', {
       \   'filetypes': 'ruby',
       \ },
       \ }
+NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle "w0ng/vim-hybrid"
 NeoBundle 'haya14busa/vim-easyoperator-phrase'
@@ -104,7 +105,8 @@ set ruler
 set laststatus=2
 set showcmd
 set hlsearch
-set incsearch
+set hlsearch
+" set incsearch
 set ignorecase
 set title
 set noshowmode
@@ -252,6 +254,13 @@ function! MyCharCode()
     let nrformat = '0x%04x'
   endif
 
+  "yank rang 設定
+  nmap p <Plug>(yankround-p)
+  nmap P <Plug>(yankround-P)
+  nmap gp <Plug>(yankround-gp)
+  nmap gP <Plug>(yankround-gP)
+  nmap <C-p> <Plug>(yankround-prev)
+  nmap <C-n> <Plug>(yankround-next)
   " Get the character and the numeric value from the return value of :ascii
   " This matches the two first pieces of the return value, e.g.
   " "<F>  70" => char: 'F', nr: '70'
@@ -396,8 +405,9 @@ let g:unite_source_file_mru_limit = 200
 nnoremap <silent> [unite]<C-y> :<C-u>Unite bookmark history/yank<CR>
 " nnoremap <silent> [unite]<C-b> :<C-u>Unite buffer bookmark file_mru<CR>
 nnoremap <silent> [unite]<C-u> :<C-u>Unite buffer file file_mru<CR>
-nnoremap <silent> [unite]gg :<C-u>Unite grep<CR>
-nnoremap <silent> [unite]<C-g> :<C-u>Unite giti<cr>
+nnoremap <silent> [unite]<C-g>   :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
+" nnoremap <silent> :<C-u>Unite grep<CR>
+" nnoremap <silent> [unite]<C-g> :<C-u>Unite giti<cr>
 nmap <silent> [unite]<C-r> :<C-u>Unite giti/status<CR>
 nnoremap <silent> [unite]<C-b> :<C-u>Unite giti/branch<CR>
 nnoremap <silent> [unite]l :<C-u>Unite giti/log<CR>
