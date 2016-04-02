@@ -1,4 +1,5 @@
 alias vi=/usr/local/bin/vim
+alias rake erd="rake erd --attributes=foreign_keys,primary_keys,content,timestamp --filename=erd_sample --filetype=png"
 alias gla="git lga"
 alias git pull-request="git pull-request -b develop"
 ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
