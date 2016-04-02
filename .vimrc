@@ -398,8 +398,6 @@ nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 "unite 設定
 nnoremap [unite]    <Nop>
 nmap     <C-u> [unite]
-nnoremap * *vey
-cnoremap <C-p> <C-r>"  
 nmap <C-j><C-j> <Plug>(unite_exit)
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
@@ -546,6 +544,8 @@ nmap ga :Gwrite<CR>
 nmap gco :Gcommit<CR>
 nmap gd :Gdiff<CR>
 nmap gb :Gblame<CR>
+nnoremap * *vey
+cnoremap <C-p> <C-r>"^d0^d0  
 " imap <C-j> <esc>
 " vmap <C-j> <esc>
 " function! ZenkakuSpace()
