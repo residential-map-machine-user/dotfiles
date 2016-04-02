@@ -545,7 +545,7 @@ nmap gco :Gcommit<CR>
 nmap gd :Gdiff<CR>
 nmap gb :Gblame<CR>
 nnoremap * *vey
-cnoremap <C-p> <C-r>"^d0^d0  
+cnoremap <C-p> <C-r>"
 " imap <C-j> <esc>
 " vmap <C-j> <esc>
 " function! ZenkakuSpace()
