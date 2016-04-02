@@ -379,7 +379,7 @@ let g:EclimProjectTreeAutoOpen = 1
 
 
 "easy motion 設定
-nmap s <Plug>(easymotion-s2)
+" nmap s <Plug>(easymotion-s2)
 
 
 " vim-easy-align 設定
@@ -398,6 +398,8 @@ nmap <silent> <C-l> ?function<cr>:noh<cr><Plug>(jsdoc)
 "unite 設定
 nnoremap [unite]    <Nop>
 nmap     <C-u> [unite]
+nnoremap * *vey
+cnoremap <C-p> <C-r>"  
 nmap <C-j><C-j> <Plug>(unite_exit)
 let g:unite_enable_start_insert=1
 let g:unite_source_history_yank_enable =1
@@ -405,9 +407,10 @@ let g:unite_source_file_mru_limit = 200
 nnoremap <silent> [unite]<C-y> :<C-u>Unite bookmark history/yank<CR>
 " nnoremap <silent> [unite]<C-b> :<C-u>Unite buffer bookmark file_mru<CR>
 nnoremap <silent> [unite]<C-u> :<C-u>Unite buffer file file_mru<CR>
+" nnoremap <silent> [unite]<C-u> :<C-u>Unite  buffer file file_mru file_rec/async:! <CR>
 nnoremap <silent> [unite]<C-g>   :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 " nnoremap <silent> :<C-u>Unite grep<CR>
-" nnoremap <silent> [unite]<C-g> :<C-u>Unite giti<cr>
+" nnoremap <silent> [unite]g :<C-u>Unite giti<cr>
 nmap <silent> [unite]<C-r> :<C-u>Unite giti/status<CR>
 nnoremap <silent> [unite]<C-b> :<C-u>Unite giti/branch<CR>
 nnoremap <silent> [unite]l :<C-u>Unite giti/log<CR>
