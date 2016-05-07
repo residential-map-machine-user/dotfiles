@@ -40,6 +40,13 @@ NeoBundleLazy 'marcus/rsense', {
       \   'filetypes': 'ruby',
       \ },
       \ }
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'clausreinke/typescript-tools.vim'
+NeoBundleLazy 'jason0x43/vim-js-indent', {
+      \ 'autoload' : {
+      \   'filetypes' : ['javascript', 'typescript', 'html'],
+      \}}
+let g:js_indent_typescript = 1
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle "w0ng/vim-hybrid"
@@ -555,6 +562,8 @@ highlight CursorLine term=reverse cterm=reverse
 " autocmd BufNewFile,BufRead * match ZenkakuSpace /　/
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
+au BufRead,BufNewFile *.ts        setlocal filetype=typescript
+set rtp+=~/.vim/bundle/typescript-tools.vim/
 augroup source-vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
