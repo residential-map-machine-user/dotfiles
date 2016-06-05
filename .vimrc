@@ -87,6 +87,7 @@ NeoBundle 'Lokaltog/powerline', { 'rtp' : 'powerline/bindings/vim'}
 NeoBundle 'Lokaltog/powerline-fontpatcher'
 NeoBundle 'rizzatti/dash.vim'
 NeoBundle 'tpope/vim-rails.git'
+NeoBundle 'slim-template/vim-slim.git'
 call neobundle#end()
 NeoBundleCheck
 ""vim デフォルト設定
@@ -120,7 +121,6 @@ set noshowmode
 set runtimepath+=~/.vim/bundle
 set backspace=indent,eol,start
 set completeopt+=menuone
-set suffixesadd+=.rb,js,.css,html
 set autoindent
 set smartindent
 set conceallevel=0
@@ -129,6 +129,9 @@ let g:vim_json_syntax_conceal = 0
 "fugitive　設定
 " html5設定
 let g:emmet_html5 = 1
+
+"snippet　設定
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 "tagbar設定
 nnoremap  <silent> <Leader>t :TagbarToggle<CR>
 let g:tagbar_width = 40
@@ -562,6 +565,7 @@ highlight CursorLine term=reverse cterm=reverse
 " autocmd BufNewFile,BufRead * match ZenkakuSpace /　/
 autocmd InsertEnter * set cursorline
 autocmd InsertLeave * set nocursorline
+autocmd BufRead,BufNewFile *.erb set filetype=eruby.html
 au BufRead,BufNewFile *.ts        setlocal filetype=typescript
 set rtp+=~/.vim/bundle/typescript-tools.vim/
 augroup source-vimrc
@@ -574,3 +578,18 @@ augroup grepopen
   autocmd QuickfixCmdPost vimgrep cw
 augroup END
 au User Rails nnoremap <C-u>r :Dash rails:<C-R><C-W><CR>
+function! s:open_kobito(...)
+    if a:0 == 0
+        call system('open -a Kobito '.expand('%:p'))
+    else
+        call system('open -a Kobito '.join(a:000, ' '))
+    endif
+endfunction
+
+" 引数のファイル(複数指定可)を Kobitoで開く
+" （引数無しのときはカレントバッファを開く
+command! -nargs=* Kobito call s:open_kobito(<f-args>)
+" Kobito を閉じる
+command! -nargs=0 KobitoClose call system("osascript -e 'tell application \"Kobito\" to quit'")
+" Kobito にフォーカスを移す
+command! -nargs=0 KobitoFocus call system("osascript -e 'tell application \"Kobito\" to activate'")

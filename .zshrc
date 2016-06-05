@@ -1,7 +1,6 @@
 alias vi=/usr/local/bin/vim
 alias rake erd="rake erd --attributes=foreign_keys,primary_keys,content,timestamp --filename=erd_sample --filetype=png"
 alias gla="git lga"
-alias git pull-request="git pull-request -b develop"
 ECLIPSE_HOME=/Applications/Eclipse.app/Contents/Eclipse
 export ECLIPSE_HOME
 PATH=$HOME/android-ndk-r10e:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools:$GRADLE_HOME/bin:$HOME/.nodebrew/current/bin:/usr/local/bin:$PATH
