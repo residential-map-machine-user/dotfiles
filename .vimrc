@@ -7,6 +7,7 @@ if has('vim_starting')
 endif
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
+NeoBundle 'jpo/vim-railscasts-theme'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
       \     'windows' : 'tools\\update-dll-mingw',
@@ -350,7 +351,6 @@ function! s:my_cr_function()
   return pumvisible() ? "\<C-y>" : "\<CR>"
 endfunction
 " スニペットファイルの保存ディレクトリのパスを登録
-let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets/snippets'
 
 "smart input 設定
 if neobundle#tap('vim-smartinput')
@@ -463,12 +463,15 @@ let g:syntastic_auto_loc_list=1 "エラーがあったら自動でロケーシ�
 let g:syntastic_loc_list_height=6 "エラー表示ウィンドウの高さ
 let g:loaded_syntastic_java_javac_checker = 1
 let g:syntastic_javascript_checkers = ['eslint'] "ESLintを使う
+let g:syntastic_fortran_checkers = ['gfortran'] "ESLintを使う
 let g:syntastic_mode_map = {
       \ 'mode': 'active',
       \ 'active_filetypes': ['javascript'],
       \ 'passive_filetypes': []
       \ }
-
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 "emmet 設定
 let g:user_emmet_leader_key = '<C-e>'
@@ -535,7 +538,7 @@ let g:user_emmet_settings = {
 " clang 設定
 " let g:clang_c_options = '-std=c11'
 " let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ --pedantic-errors'
-colorscheme hybrid
+colorscheme railscasts
 
 let g:neobundle#log_filename = $HOME . "/neobundle.log"
 "カスタム設定
